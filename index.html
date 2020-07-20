@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Electiva II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="./js/jQuery_3.4.1.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/scripts.js"></script>
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+   
+</head>
+
+
+<body>
+    <div class="container">
+        <form>
+        <div class="container">
+
+        <div class="form-row">
+                <div class="col-sm">
+                    <h1 style="text-align: center">
+                        Taller electiva-II
+                    </h1>
+                </div>
+            </div>    
+        </div>
+
+        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12">
+                                <table id="tabla1" class="display">
+                                    <thead>
+                                        <tr>
+                                            <th>Número de factura</th>
+                                            <th>Fecha de factura</th>
+                                            <th>Tipo de pago</th>
+                                            <th>Plazo</th>
+                                            <th>Valor total</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+        <div class="container">
+                    <div class="form-row">
+                            <div class="col-sm">
+                                <h3 >
+                                    Abonos factura
+                                </h3>
+                            </div>
+                        </div>
+        </div>
+       
+
+            <div class="container">
+                <div class="form-row">
+                <div class="form-group col-6 col-sm">
+                    <label>N&uacute;mero factura</label>
+                    <select class="form-control" id="select1">
+                    </select>
+                </div>
+                
+                <div class="form-group col-6 col-sm">
+                    <label>Saldo</label>
+                    <input type="text" name="" class="form-control" id="saldo1" disabled="true">
+                </div>
+
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                     <div class="form-group col-6 col-sm">
+                    <label>Valor abono</label>
+                    <input type="text" name="" class="form-control" id="valorabono"  onkeyup="format(this)"  onchange="format(this)">
+                      
+                </div>
+
+                <div class="form-group col-6 col-sm">
+                    <label>Nuevo saldo</label>
+                    <input type="text" name="" class="form-control" id="nuevosaldo" disabled="true" value="0">
+                </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                    <div class="form-group col-12 col-sm">    
+                    <label>Observaciones</label>
+                    <textarea class="form-control" id="observacionesA"></textarea> 
+                </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                <div class="form-group col-6 col-sm">
+                    <button type="button" class="btn btn-success form-control" id="abonoBoton" >Realizar abono</button>
+                </div>
+                
+                <div class="form-group col-6 col-sm">
+                    <button type="button" class="btn btn-danger form-control" id="cancelarBoton" >Cancelar</button>
+                </div>
+
+                </div>
+
+            </div>
+        </form>
+
+        <div >
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Número Factura</th>
+                                            <th>Abonos</th>
+                                            <th>Total Abonos</th>
+                                            <th>Fecha Vencimiento</th>
+                                            <th>Saldo</th>
+                                            <th >Consultar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableid">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+        <div class="row" >
+                            <div class="col-12" id="tablaDetalle">
+                                <h3>Detalle de abonos</h3>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th>No. de Factura</th>
+                                        <th>No. de abono</th>
+                                        <th>Valor de abono</th>
+                                        <th>Observaciones</th>
+                                        <th>Saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaDetalleB">
+                                        
+                                    </tbody>
+                                </table>
+                            
+                            </div>
+            </div>
+
+            <div class="container">
+                <div class="form-row">
+                <div class="form-group col-6 col-sm">
+                    <button type="button" class="btn btn-success form-control" id="carteraBoton" >Consulta de cartera por edades</button>
+                </div>
+                </div>
+            </div>
+
+             <div class="row" >
+                            <div class="col-12" id="tablaCartera">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th>Rango</th>
+                                        <th>No. de factura</th>
+                                        <th>Fecha de vencimiento</th>
+                                        <th>Saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tablaCarteraB">
+                                    </tbody>
+                                </table>
+                            
+                            </div>
+                </div>
+            </div>
+        
+       
+        
+    </div>
+    <hr>
+    <div class="container">
+                <div class="form-row">
+                <div class="form-group col-6 col-sm" align="center">
+                    <h4>Derechos reservados &copy;  < Walter Tamayo, Juan Sánchez, Stefany Barrera, Marcos Vargas ></h4>
+                </div>
+                </div>
+            </div>
+    </div>
+
+
+ <script>
+  
+    </script>
+</body>
+</html>
